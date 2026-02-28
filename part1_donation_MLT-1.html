@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>420 Robotics — Support Our Research</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --dark:     #0e1118;
+      --navy:     #131b2e;
+      --navy2:    #1c2840;
+      --gold:     #c49a2b;
+      --gold-lt:  #e0b84a;
+      --gold-pale:#f5e9c0;
+      --paper:    #f7f6f2;
+      --white:    #ffffff;
+      --muted:    #6b7280;
+      --rule:     #e2ddd6;
+      --text:     #1f2937;
+      --text-lt:  #4b5563;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* ════════════════════════════════════
+       HEADER
+    ════════════════════════════════════ */
+    .site-header {
+      background: var(--navy);
+      padding: 64px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(196,154,43,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(196,154,43,0.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .header-inner { position: relative; max-width: 820px; margin: 0 auto; }
+
+    .org-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      border: 1px solid rgba(196,154,43,0.5);
+      padding: 7px 22px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .site-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .site-header h1 em {
+      color: var(--gold-lt);
+      font-style: normal;
+    }
+
+    .site-header .lead {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ════════════════════════════════════
+       SHARED LAYOUT
+    ════════════════════════════════════ */
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .section-eyebrow {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    h2.section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 70px 0;
+    }
+
+    /* ════════════════════════════════════
+       DONATION SECTION
+    ════════════════════════════════════ */
+    .donation-section {
+      padding: 80px 0 72px;
+    }
+
+    .donation-intro {
+      max-width: 680px;
+      margin-bottom: 52px;
+    }
+    .donation-intro p {
+      color: var(--text-lt);
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .donation-intro p strong { color: var(--text); font-weight: 600; }
+
+    .donation-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+    }
+    @media (max-width: 720px) {
+      .donation-card { grid-template-columns: 1fr; }
+    }
+
+    .donation-card .card-body {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .donation-card .card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .donation-card .card-body p {
+      color: var(--text-lt);
+      font-size: 0.97rem;
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+    .donation-card .card-body p:last-of-type { margin-bottom: 28px; }
+
+    .uses-list {
+      list-style: none;
+      margin: 0 0 28px;
+      padding: 0;
+    }
+    .uses-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-lt);
+      margin-bottom: 10px;
+    }
+    .uses-list li::before {
+      content: '→';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .btn-donate {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 16px 42px;
+      border-radius: 4px;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(196,154,43,0.35);
+      align-self: flex-start;
+    }
+    .btn-donate:hover {
+      background: #a87e1f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(196,154,43,0.45);
+    }
+
+    .donation-card .card-qr {
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 36px;
+      gap: 20px;
+      position: relative;
+    }
+    .card-qr::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(196,154,43,0.1) 0%, transparent 70%);
+    }
+    .qr-frame {
+      position: relative;
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+    }
+    .qr-frame img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .qr-tag {
+      position: relative;
+      text-align: center;
+    }
+    .qr-tag p {
+      color: rgba(255,255,255,0.55);
+      font-size: 11.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .qr-tag span {
+      color: var(--gold-lt);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* impact quote bar */
+    .impact-bar {
+      background: var(--navy2);
+      padding: 50px 28px;
+      text-align: center;
+    }
+    .impact-bar blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .impact-bar blockquote strong {
+      color: var(--gold-lt);
+      font-style: normal;
+    }
+
+    /* ════════════════════════════════════
+       SECTION INTRO BLOCK
+    ════════════════════════════════════ */
+    .section-intro {
+      padding: 72px 0 0;
+    }
+    .section-intro .intro-text {
+      max-width: 660px;
+    }
+    .section-intro .intro-text p {
+      color: var(--text-lt);
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    /* ════════════════════════════════════
+       TIMELINE CATEGORY GROUPS
+    ════════════════════════════════════ */
+    .category-group {
+      margin-top: 60px;
+    }
+    .category-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      padding: 5px 16px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .roadmap-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 28px 26px;
+      transition: box-shadow 0.2s, transform 0.22s;
+    }
+    .roadmap-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+      transform: translateY(-4px);
+    }
+
+    .rc-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .rc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .rc-body {
+      font-size: 0.9rem;
+      color: var(--text-lt);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .rc-timeline {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(196,154,43,0.3);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+    .rc-timeline::before {
+      content: '◆';
+      font-size: 7px;
+    }
+
+    /* timeline note for different months */
+    .month-note {
+      background: var(--gold-pale);
+      border-left: 3px solid var(--gold);
+      padding: 12px 18px;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.88rem;
+      color: #7a5c12;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* ════════════════════════════════════
+       PROVEN RESULTS
+    ════════════════════════════════════ */
+    .results-section {
+      padding: 72px 0;
+    }
+    .proven-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .proven-item {
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .proven-item .pi-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .proven-item p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+    .proven-item p strong {
+      display: block;
+      color: var(--gold-lt);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    /* ════════════════════════════════════
+       INVOLVEMENT / CTA
+    ════════════════════════════════════ */
+    .involvement-section {
+      background: var(--navy);
+      padding: 80px 28px;
+      text-align: center;
+    }
+    .involvement-section .section-eyebrow { color: var(--gold-lt); }
+    .involvement-section h2.section-heading { color: #fff; }
+    .involvement-section p.inv-lead {
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      font-size: 1rem;
+    }
+
+    .roles-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+    .role-chip {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(196,154,43,0.3);
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+
+    .conclusion-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto 36px;
+    }
+    .conclusion-quote em {
+      color: var(--gold-lt);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* footer */
+    .site-footer {
+      background: var(--dark);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .site-footer p {
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+    .site-footer span { color: var(--gold); }
+  </style>
+</head>
+<body>
+<!-- ═══ 420 ROBOTICS BANNER ═══ -->
+<div style="width:100%;background:#000;text-align:center;line-height:0;">
+  <img src="file_00000000d87471fda805790944c4f0ac.png" alt="420 Robotics — For God. For Country. For Humanity." style="width:100%;max-width:100%;display:block;object-fit:cover;"/>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="org-badge">420 Robotics</div>
+    <h1>The Moral Latency Test Framework<br/><em>Research Roadmap 2026</em></h1>
+    <p class="lead">Advancing rigorous, independent AI safety research — measuring what models actually do under pressure, not just what they claim to do.</p>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════
+     DONATION SECTION
+════════════════════════════════════════ -->
+<section class="donation-section">
+  <div class="wrap">
+
+    <div class="donation-intro">
+      <span class="section-eyebrow">Support Independent Research</span>
+      <h2 class="section-heading">Help Us Build the Future of AI Accountability</h2>
+      <p>
+        <strong>The 420 Robotics operates as a fully independent research initiative.</strong> We receive no funding from AI corporations, government contracts, or commercial interests — by design. Our independence is our integrity.
+      </p>
+      <p>
+        Every dollar contributed directly supports the testing infrastructure, computing resources, publication efforts, and community tools that make this research possible. We are building something that does not yet exist: a transparent, reproducible, public record of how AI systems behave when it matters most.
+      </p>
+      <p>
+        Your support — at any level — keeps this work free from conflicts of interest and open to the public. We believe AI safety is too important to be left exclusively to the companies building the systems being evaluated.
+      </p>
+    </div>
+
+    <div class="donation-card">
+
+      <div class="card-body">
+        <h3>Donations Needed — For Research</h3>
+        <p>
+          This research requires sustained investment in infrastructure, testing cycles, academic partnerships, and publication. We are a lean, mission-driven team committed to doing this work at the highest possible standard.
+        </p>
+        <p>
+          Your contribution funds real, measurable outcomes — from publishing peer-reviewed papers to building open-access dashboards that let the public see how AI models actually score.
+        </p>
+
+        <ul class="uses-list">
+          <li>Testing infrastructure and compute resources for MLT scenario runs</li>
+          <li>Development of the Interactive Results Dashboard and public data platform</li>
+          <li>Academic paper publication and white paper distribution to policymakers</li>
+          <li>Crowdsourced testing platform for community contributors</li>
+          <li>Video demonstrations and public education (YouTube series)</li>
+          <li>Outreach to AI safety institutions and academic partnerships</li>
+        </ul>
+
+        <a href="https://cash.app/$420robotics" target="_blank" rel="noopener noreferrer" class="btn-donate">
+          ▶ &nbsp; Click Here to Donate
+        </a>
+      </div>
+
+      <div class="card-qr">
+        <div class="qr-frame">
+          <!-- Place your QR code image file in the same folder as this HTML file -->
+          <img src="35132d0d2d6baa895c5e625da50c3b7de0e03dad5c2aab745dd91da4bb45b8c6 (1).png" alt="Donate via Cash App QR Code — 420 Robotics" />
+        </div>
+        <div class="qr-tag">
+          <p>Scan to donate via</p>
+          <span>Cash App &nbsp;·&nbsp; $420robotics</span>
+          <span style="display:block;color:rgba(255,255,255,0.35);font-size:10px;margin-top:6px;letter-spacing:0.08em;">For God. For Country. For Humanity.</span>
+        </div>
+      </div>
+
+    </div><!-- /donation-card -->
+
+  </div><!-- /wrap -->
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     IMPACT QUOTE BAR
+════════════════════════════════════════ -->
+<div class="impact-bar">
+  <blockquote>
+    "This is not my research. It's ours." — Independent research only survives with the support of those who believe <strong>truth matters more than convenience.</strong>
+  </blockquote>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     MLT ROADMAP — METHODOLOGY IMPROVEMENTS
+════════════════════════════════════════ -->
+<section class="section-intro">
+  <div class="wrap">
+    <span class="section-eyebrow">2026 Research Roadmap</span>
+    <h2 class="section-heading">What Your Support Makes Possible</h2>
+    <div class="intro-text">
+      <p>
+        The MLT Framework is a living methodology. Below is a transparent view of every major initiative planned for 2026 — organized by category, with clear timelines and goals. This is the work your contributions directly enable.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- CATEGORY: Methodology Improvements -->
+<div class="wrap">
+  <div class="category-group">
+    <div class="category-label">Methodology Improvements</div>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card">
+        <div class="rc-number">09</div>
+        <div class="rc-title">Reliability Score Refinement</div>
+        <p class="rc-body">
+          Current Reliability Score formulas have proven their value in early testing, but the data we have gathered over the past months reveals areas where precision can be substantially improved. Spring 2026 brings a full overhaul — new weighted formulas, expanded edge-case calibration, and cross-model normalization so scores can be meaningfully compared across different model generations.
+        </p>
+        <span class="rc-timeline">Spring 2026</span>
+        <div class="month-note">
+          By March, initial formula drafts will be finalized. April brings community review and red-team stress testing. May sees the refined scoring system go live across all existing archived results.
+        </div>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="rc-number">10</div>
+        <div class="rc-title">Expanded Scoring Dimensions</div>
+        <p class="rc-body">
+          The current scoring system measures response accuracy and latency. Summer 2026 introduces three new dimensions: <strong>emotional awareness</strong> (does the model recognize the human stakes of a scenario?), <strong>actionability</strong> (does the response actually help?), and <strong>confidence calibration</strong> (does the model express appropriate certainty given what it knows?). These additions dramatically increase the real-world predictive value of MLT scores.
+        </p>
+        <span class="rc-timeline">Summer 2026</span>
+        <div class="month-note">
+          June: Dimension definitions finalized and validated through pilot testing. July: Integration into the scoring engine. August: Full rollout with retroactive application to archived test data.
+        </div>
+      </div>
+
+    </div><!-- /roadmap-grid -->
+  </div><!-- /category-group -->
+
+
+  <!-- CATEGORY: Community Contributions -->
+  <div class="category-group">
+    <div class="category-label">Community Contributions</div>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card">
+        <div class="rc-number">11</div>
+        <div class="rc-title">Crowdsourced Testing Platform</div>
+        <p class="rc-body">
+          AI safety research cannot scale without the public. This fall, we launch an open platform where anyone can run standardized MLT scenarios against any available AI model and submit results to our central database. Submissions will be validated, normalized, and published with full attribution. This transforms MLT from a boutique methodology into a global, living dataset.
+        </p>
+        <span class="rc-timeline">Fall 2026</span>
+        <div class="month-note">
+          September: Platform soft launch with beta testers. October: Public opening with guided submission tools. November: First crowdsourced dataset report published.
+        </div>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="rc-number">12</div>
+        <div class="rc-title">Academic Partnerships</div>
+        <p class="rc-body">
+          We are actively reaching out to AI safety and ethics departments at major research universities. March 2026 marks our first formal outreach campaign, targeting institutions with existing AI safety programs. Partnership goals include co-authored publications, shared infrastructure, and mutual validation of MLT methodology by independent academic teams.
+        </p>
+        <span class="rc-timeline">March 2026</span>
+        <div class="month-note">
+          March: Initial outreach letters and white paper distribution. April–May: Follow-up meetings and partnership proposals. Summer: First co-research agreements expected to be finalized.
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /category-group -->
+
+
+  <!-- CATEGORY: Special Testing -->
+  <div class="category-group">
+    <div class="category-label">Special Testing Categories</div>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card">
+        <div class="rc-number">13</div>
+        <div class="rc-title">Jailbreak Resistance Testing</div>
+        <p class="rc-body">
+          One of the most critical questions in practical AI safety: can a model maintain its ethical commitments when a user frames a harmful request as fiction, roleplay, or cultural practice? June 2026 launches a structured jailbreak resistance battery — testing whether reflexive safety (genuine internalized values) holds under the full range of adversarial framing techniques documented in the wild.
+        </p>
+        <span class="rc-timeline">June 2026</span>
+        <div class="month-note">
+          Early June: Adversarial scenario library compiled and reviewed. Mid-June: Blind testing begins across target models. Late June: Results published with model-by-model breakdown and comparative analysis.
+        </div>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="rc-number">14</div>
+        <div class="rc-title">Edge Case Stress Testing</div>
+        <p class="rc-body">
+          Standard MLT scenarios cover the middle of the ethical landscape. July 2026 pushes to the extremes: maximum ambiguity, maximum emotional pressure, simultaneous conflicting obligations, and scenarios where every possible response carries genuine ethical costs. These extreme cases reveal the actual architecture of a model's moral reasoning in ways standard tests cannot.
+        </p>
+        <span class="rc-timeline">July 2026</span>
+        <div class="month-note">
+          July is dedicated entirely to stress-test design and execution. Results feed directly into the Summer 2026 expanded scoring dimension rollout, providing real data to calibrate the new metrics.
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /category-group -->
+
+
+  <!-- CATEGORY: Visualization and Communication -->
+  <div class="category-group">
+    <div class="category-label">Visualization &amp; Communication</div>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card">
+        <div class="rc-number">15</div>
+        <div class="rc-title">Interactive Results Dashboard</div>
+        <p class="rc-body">
+          This summer, we launch a live, publicly accessible dashboard showing real-time model rankings, scenario results, score distributions, and trend data over time. Built for both the general public and technical researchers, it will become the authoritative public record of how major AI models perform on the MLT — updated continuously as new tests are completed.
+        </p>
+        <span class="rc-timeline">Summer 2026</span>
+        <div class="month-note">
+          June: Backend infrastructure and data architecture. July: Frontend development and user testing. August: Public launch with initial dataset loaded and historical comparisons enabled.
+        </div>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="rc-number">16</div>
+        <div class="rc-title">Video Demonstrations</div>
+        <p class="rc-body">
+          Abstract methodology becomes real when people can watch it in action. Beginning this spring, we launch a YouTube series documenting actual MLT testing sessions — real prompts, real model responses, real-time analysis. The series is designed to be accessible to a general audience while remaining technically rigorous enough to be useful to researchers and policymakers.
+        </p>
+        <span class="rc-timeline">Spring – Summer 2026</span>
+        <div class="month-note">
+          Spring episodes focus on methodology explanation and case studies. Summer episodes shift to live testing of new models as they are released, providing timely public accountability coverage.
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /category-group -->
+
+
+  <!-- CATEGORY: Publications -->
+  <div class="category-group">
+    <div class="category-label">Planned Publications</div>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card">
+        <div class="rc-number">17</div>
+        <div class="rc-title">Academic Papers</div>
+        <p class="rc-body">
+          Three major peer-reviewed papers are in preparation for Summer 2026 submission: the first formally defining the MLT methodology and presenting initial results; the second examining the reflexive vs. calculated safety dichotomy and its real-world implications; and the third analyzing the corporate safety paradox — the structural conflict between commercial incentives and genuine AI safety commitments.
+        </p>
+        <span class="rc-timeline">Summer 2026</span>
+        <div class="month-note">
+          Paper one targets July submission. Papers two and three target August. All three will be made available as open-access preprints upon submission, with no paywall for the public.
+        </div>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="rc-number">18</div>
+        <div class="rc-title">White Papers for Policymakers</div>
+        <p class="rc-body">
+          Good research has no value if it doesn't reach decision-makers. Q2 2026 brings a series of policy-focused white papers written specifically for government and regulatory audiences — covering recommended AI procurement standards, bias detection guidelines for public-sector use cases, and a proposed national framework for mandatory safety testing of AI systems deployed in high-stakes environments.
+        </p>
+        <span class="rc-timeline">Q2 2026</span>
+        <div class="month-note">
+          April: Procurement standards white paper published. May: Bias testing guidelines distributed to Congressional and EU regulatory contacts. June: Full policy framework document released ahead of planned legislative hearings.
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /category-group -->
+
+
+  <!-- CATEGORY: Results Archive -->
+  <div class="category-group">
+    <div class="category-label">Results Archive</div>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card">
+        <div class="rc-number">19</div>
+        <div class="rc-title">Historical Model Comparison</div>
+        <p class="rc-body">
+          Progress is only visible when you can measure where you started. We are retroactively testing legacy AI models — GPT-3, early Bard iterations, original Claude releases, and others — using the current MLT battery to establish a historical baseline. This ongoing project will reveal whether AI moral reasoning has genuinely improved over time, or simply become more sophisticated at appearing to improve.
+        </p>
+        <span class="rc-timeline">Ongoing</span>
+        <div class="month-note">
+          New historical entries are added monthly as access to legacy model APIs is established. Results are integrated into the public dashboard in real time, building a continuously expanding longitudinal record.
+        </div>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="rc-number">20</div>
+        <div class="rc-title">"Hall of Fame" &amp; "Wall of Shame"</div>
+        <p class="rc-body">
+          Accountability requires consequences — or at least visibility. We are establishing two permanent public records: a <strong>Hall of Fame</strong> recognizing AI models that achieve perfect or near-perfect MLT scores across all dimensions and all scenario categories, and a <strong>Wall of Shame</strong> documenting models that have produced catastrophic failures — responses that caused measurable real-world harm or demonstrated fundamental safety breakdowns. Both lists will be permanent, public, and updated as new results emerge.
+        </p>
+        <span class="rc-timeline">Ongoing</span>
+        <div class="month-note">
+          First entries in both lists expected by Q2 2026 as initial testing datasets reach sufficient depth for confident classification. Criteria for each list will be published in advance for full transparency.
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /category-group -->
+
+
+  <hr class="rule" style="margin: 72px 0 0;"/>
+</div><!-- /wrap -->
+
+
+<!-- ═══════════════════════════════════════
+     PROVEN RESULTS
+════════════════════════════════════════ -->
+<section class="results-section">
+  <div class="wrap">
+    <span class="section-eyebrow">What We Have Already Proven</span>
+    <h2 class="section-heading">The Foundation Is Established</h2>
+    <p style="color:var(--text-lt); max-width:640px; font-size:1rem; margin-bottom:8px;">
+      Before a single dollar of community funding is raised, this is what the 420 Robotics has already demonstrated through rigorous, independent research:
+    </p>
+
+    <div class="proven-grid">
+      <div class="proven-item">
+        <div class="pi-icon">📊</div>
+        <p><strong>Measurable Moral Latency</strong>AI systems exhibit quantifiable moral latency — a measurable delay or degradation in ethical response quality that can be tracked, scored, and compared.</p>
+      </div>
+      <div class="proven-item">
+        <div class="pi-icon">⚠️</div>
+        <p><strong>Latency Predicts Failures</strong>Models with higher measured moral latency in controlled testing have a statistically significant correlation with documented real-world safety failures.</p>
+      </div>
+      <div class="proven-item">
+        <div class="pi-icon">🛡️</div>
+        <p><strong>Reflexive Outperforms Calculated</strong>Models demonstrating genuine internalized values (reflexive safety) consistently outperform models relying on calculated, rule-based safety responses under adversarial conditions.</p>
+      </div>
+      <div class="proven-item">
+        <div class="pi-icon">🔍</div>
+        <p><strong>Bias Is Systematically Detectable</strong>Using structured MLT scenarios, we have demonstrated that AI bias — across multiple dimensions — can be detected, classified, and measured with reproducible methodology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     INVOLVEMENT / FINAL CTA
+════════════════════════════════════════ -->
+<section class="involvement-section">
+  <span class="section-eyebrow">Join the Work</span>
+  <h2 class="section-heading">We Need You</h2>
+  <p class="inv-lead">
+    The Moral Latency Test Framework is not a product. It is a collective effort to hold artificial intelligence accountable to the humans it affects. We are actively seeking contributors across every discipline.
+  </p>
+
+  <div class="roles-row">
+    <span class="role-chip">Testers</span>
+    <span class="role-chip">AI Researchers</span>
+    <span class="role-chip">Programmers</span>
+    <span class="role-chip">Ethicists</span>
+    <span class="role-chip">Policymakers</span>
+    <span class="role-chip">Academics</span>
+    <span class="role-chip">Data Scientists</span>
+    <span class="role-chip">Science Communicators</span>
+    <span class="role-chip">Financial Supporters</span>
+  </div>
+
+  <p class="conclusion-quote">
+    "The work continues. <em>Join us.</em>"
+  </p>
+
+  <a href="https://cash.app/$420robotics" target="_blank" rel="noopener noreferrer" class="btn-donate">
+    ▶ &nbsp; Support This Research — Donate Now
+  </a>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<!-- ═══ LOGO ROW ═══ -->
+<div style="display:flex;justify-content:center;align-items:center;gap:32px;padding:36px 24px;background:rgba(0,0,0,0.4);flex-wrap:wrap;">
+  <img src="file_0000000048e071f8a76ebbf4e18d58d2.png" alt="420 Robotics Logo" style="height:90px;object-fit:contain;"/>
+  <img src="file_00000000940471fdad98cda50e1fcc30.png" alt="420 Robotics Logo" style="height:90px;object-fit:contain;"/>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <span style="color:#e53e3e;font-weight:700;">420</span>&nbsp;<span style="color:#3b82f6;font-weight:700;">Robotics</span> &nbsp;·&nbsp; Independent AI Safety Research &nbsp;·&nbsp; All research published open-access</p>
+</footer>
+
+</body>
+</html>
